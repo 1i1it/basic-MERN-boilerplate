@@ -66,4 +66,8 @@ app.listen(port, '0.0.0.0', (err) => {
   console.info('>>> 🌎 Open http://0.0.0.0:%s/ in your browser.', port);
 });
 
+// app.use(function(err, req, res, next) {
+//   res.status(err.status || 500).json(res.error(err.status || 500));
+// });
+
 module.exports = app;
