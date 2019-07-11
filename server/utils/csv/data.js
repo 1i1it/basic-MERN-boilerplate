@@ -9,7 +9,7 @@ mongoose.Promise = global.Promise;
 
 let parsedCsv = []
 function readCsv(onEachRow, onAllRows) {
-  csv.parseFile('./test.csv',  { headers: true })
+  csv.parseFile('./data.csv',  { headers: true })
     .on('data', function(data) {
       const newData = Object.keys(data).forEach(key=> {
         return {[key]:  data[key].trim()}
