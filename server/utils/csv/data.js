@@ -1,6 +1,6 @@
 const Item = require('../../models/Item');
-var mongoose = require('mongoose');
-var csv = require('fast-csv');
+const mongoose = require('mongoose');
+const csv = require('fast-csv');
 
 // Set up Mongoose
 mongoose.connect('mongodb://localhost:27017/checkr');
@@ -21,7 +21,7 @@ function readCsv(onEachRow, onAllRows) {
     })
     .on('end', function() {
       console.log('Parsing complete!', parsedCsv)
-      //onAllRows(parsedCsv)
+      onAllRows(parsedCsv)
 
     });
 }

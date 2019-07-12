@@ -8,13 +8,16 @@ import {
   Switch
 } from 'react-router-dom'
 
+
+
+
 import App from './components/App/App';
 import NotFound from './components/App/NotFound';
 
 import Home from './components/Home/Home';
 
 import HelloWorld from './components/HelloWorld/HelloWorld';
-
+import Table from './components/HelloWorld/Table';
 import './styles/styles.scss';
 
 render((
@@ -23,6 +26,7 @@ render((
       <Switch>
         <Route exact path="/" component={Home}/>
         <Route path="/helloworld" component={HelloWorld}/>
+        <Route path="/table" component={Table}/>
         <Route component={NotFound}/>
       </Switch>
     </App>
