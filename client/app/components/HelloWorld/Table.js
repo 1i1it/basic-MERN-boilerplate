@@ -1,18 +1,28 @@
 import React, { useState, useEffect } from 'react';
 import './table.css'
 
-function filterRows() {
+function filterRows(value, rows) {
+  return rows.filter(row => row.Service.includes(value))
+}
+
+function sortRows(value, dataRows, direction) {
+  if (direction === 'descend') {
+    return dataRows.sort((a, b)=> b[value] - a[value])
+  }
+
+  else {
+    return dataRows.sort((a, b)=> a[value] - b[value])
+  }
 
 }
 const TableComponent = (props) => {
 
-
-  const {columns: dataColumns, rows: dataRows} = props.data;
-
+  let {columns: dataColumns, rows: dataRows} = props.data;
   const [value, setValue] = React.useState('');
   const onChange = event => setValue(event.target.value);
 
   // todo filter table based on value
+
 
   const tableHeaders = (<thead>
   <tr>
@@ -20,6 +30,9 @@ const TableComponent = (props) => {
       return <th key={`${column}${Date.now()}`}>{column}</th>; })}
   </tr>
   </thead>);
+
+  dataRows = filterRows(value, dataRows)
+  dataRows = sortRows('Cost/Unit', dataRows, 'descend')
 
   const tableBody = dataRows.map((row) => {
     return (
@@ -62,37 +75,37 @@ const tableData = {
     'Units Requested': 12
   }, {
     'Service': 'cat1',
-    'Cost/Unit': 50,
+    'Cost/Unit': 60,
     'Unit': '1 Hour',
     'Units Requested': 12
   }, {
     'Service': 'mouse',
-    'Cost/Unit': 50,
+    'Cost/Unit': 70,
     'Unit': '1 Hour',
     'Units Requested': 12
   }, {
     'Service': 'cat3',
-    'Cost/Unit': 50,
+    'Cost/Unit': 80,
     'Unit': '1 Hour',
     'Units Requested': 12
   }, {
     'Service': 'rat',
-    'Cost/Unit': 50,
+    'Cost/Unit': 90,
     'Unit': '1 Hour',
     'Units Requested': 12
   }, {
     'Service': 'armadillo',
-    'Cost/Unit': 50,
+    'Cost/Unit': 52,
     'Unit': '1 Hour',
     'Units Requested': 12
   }, {
     'Service': 'meercat',
-    'Cost/Unit': 50,
+    'Cost/Unit': 53,
     'Unit': '1 Hour',
     'Units Requested': 12
   }, {
     'Service': 'bird',
-    'Cost/Unit': 50,
+    'Cost/Unit': 55,
     'Unit': '1 Hour',
     'Units Requested': 12
   }, {
