@@ -21,8 +21,6 @@ const TableComponent = (props) => {
   const [value, setValue] = React.useState('');
   const onChange = event => setValue(event.target.value);
 
-  // todo filter table based on value
-
 
   const tableHeaders = (<thead>
   <tr>

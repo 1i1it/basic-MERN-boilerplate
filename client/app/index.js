@@ -18,6 +18,7 @@ import Home from './components/Home/Home';
 
 import HelloWorld from './components/HelloWorld/HelloWorld';
 import Table from './components/HelloWorld/Table';
+import Quiz from './components/Quiz/Quiz';
 import './styles/styles.scss';
 
 render((
@@ -27,6 +28,7 @@ render((
         <Route exact path="/" component={Home}/>
         <Route path="/helloworld" component={HelloWorld}/>
         <Route path="/table" component={Table}/>
+        <Route path="/quiz" component={Quiz}/>
         <Route component={NotFound}/>
       </Switch>
     </App>

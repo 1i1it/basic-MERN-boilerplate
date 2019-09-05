@@ -21,7 +21,7 @@ const mockedItem = {
 
 chai.use(chaiHttp);
 //Our parent block
-describe('Add/Get Item', () => {
+describe('Add/Get Item', (x => {
   let createdItem
   beforeEach((done) => { //Before each test we empty the database
     console.log("before each")
